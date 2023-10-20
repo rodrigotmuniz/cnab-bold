@@ -1,0 +1,17 @@
+{
+  "name": "cnab-bold",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "inquirer": "^9.2.11",
+    "yargs": "^16.2.0"
+  },
+  "description": "Este desafio tem a proposta de melhorar uma CI que le arquivos cnab. Um CNAB é um arquivo posicional, sendo que cabeçalho é as duas primeiras linhas do arquivo e seu rodapé as duas ultimas.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rodrigo Muniz"
+}
