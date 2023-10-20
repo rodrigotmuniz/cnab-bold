@@ -11,7 +11,8 @@
   },
   "description": "Este desafio tem a proposta de melhorar uma CI que le arquivos cnab. Um CNAB é um arquivo posicional, sendo que cabeçalho é as duas primeiras linhas do arquivo e seu rodapé as duas ultimas.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index"
   },
   "author": "Rodrigo Muniz"
 }

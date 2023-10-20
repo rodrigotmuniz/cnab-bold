@@ -1,48 +1,21 @@
-# Desafio tecnico leitor de arquivos CNAB
+# Instruções
 
-Este desafio tem a proposta de melhorar uma CI que le arquivos cnab.
-Um CNAB é um arquivo posicional, sendo que cabeçalho é as duas primeiras linhas do arquivo e seu rodapé as duas ultimas.
+Para inicar a aplicação
+1. instale as dependências
+  ```bash
+  npm install
+  ```
+2. Execute o arquivo principal
+  ```bash
+  npm start
+  ```
 
-Ele é dividido por segmentos *P*, *Q* e *R*, cada linha começa com um codigo que tem no final o tipo de segmento:
-
-```
-0010001300002Q 012005437734000407NTT BRASIL COMERCIO E SERVICOS DE TECNOLAVENIDA DOUTOR CHUCRI ZAIDAN, 1240 ANDARVILA SAO FRANCI04711130SAO PAULO      SP0000000000000000                                        000
-```
-Neste exemplo o **Q** aparece na posição/coluna 14, cada posição representa algo dentro do arquivo cnab.
-
-
-hoje ao rodar:
-
-```bash
-node cnabRows.js
-```
-
-temos o seguinte output:
-
-```bash
-node cnabRows.js --help
-Uso: cnabRows.js [options]
-
-Opções:
-      --help      Exibe ajuda                                         [booleano]
-      --version   Exibe a versão                                      [booleano]
-  -f, --from      posição inicial de pesquisa da linha do Cnab
-                                                          [número] [obrigatório]
-  -t, --to        posição final de pesquisa da linha do Cnab
-                                                          [número] [obrigatório]
-  -s, --segmento  tipo de segmento                        [string] [obrigatório]
-
-Exemplos:
-  cnabRows.js -f 21 -t 34 -s p  lista a linha e campo que from e to do cnab
-```
-
-hoje a ferramenta busca uma posição e loga isso no terminal.
-
-desafio consiste:
-
-* poder passar na CLI o local do arquivo.
-* pesquisar por nome da empresa, e mostrar em que posição que ela foi achada e qual o tipo de segmento ela pertence.
-
-* **Bonus**, ler o cnab e escrever um novo arquivo em formato JSON, contendo nome e endereço da empresa.
-
-O candidato tem total liberdade de mudar a estrutura atual desse projeto, a ideía é ver a criatividade de resolver esse problema.
+  # Considerações
+  1. Considerei que o arquivo CNAB possui sempre duas linha de header e duas trailler / footer
+  2. Cada "elemento" de cada uma das linha possuem posição de inicio e fim fixas
+  3. Todos os caminhos inseridos são absolutos
+  4. Preferi utilizar uma abordagem de "escolha e avance" ao invês de utilizar todos os comandos via argumento pois, além de ser mais amigável essa abordagem, a quantidade de opções eram pequenas e a maioria dos campos era obrigatório e fixos.
+  5. Não entendi porque usava apenas o primeiro lote e não todos no exemplo. Preferi mostrar sempre todos os lotes mas, caso que mostre apenas um especifico, fica facil de implementar
+  6. Fiz algumas validações porém existem mais para serem feitas, além de testes unitário e outras melhorias como publicação na NPM para utitlização sem necessidade de ter que clonar o projeto.
+  7. Não vi a necessidade de realizar o help pois já estava utilizando uma abordagem mais auto-instrutiva
+  8. Algumas variáveil poderia ter sido colocadas em um arquivo de ambiente (.env). Decidi deixá-las no código para agilizar o processo.
